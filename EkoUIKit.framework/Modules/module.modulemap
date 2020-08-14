@@ -1,0 +1,11 @@
+framework module EkoUIKit {
+  umbrella header "EkoUIKit.h"
+
+  export *
+  module * { export * }
+}
+
+module EkoUIKit.Swift {
+    header "EkoUIKit-Swift.h"
+    requires objc
+}
