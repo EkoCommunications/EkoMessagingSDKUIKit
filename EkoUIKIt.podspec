@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                   LICENSE
                 }
     s.author             = { "$(git config user.name)" => "$(git config user.email)" }
-    s.source       = { :git => 'https://github.com/EkoCommunications/EkoMessagingSDKUIKit', :tag => "#{s.version}" }
+    s.source       = { :git => 'https://github.com/EkoCommunications/EkoMessagingSDKUIKit.git', :tag => "#{s.version}" }
     s.vendored_frameworks = 'EkoUIKit.framework', 'EkoChat.framework', 'Realm.framework'
     s.platform = :ios
     s.swift_version = "5"
