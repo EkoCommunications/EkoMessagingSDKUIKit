@@ -80,6 +80,10 @@ __attribute__((objc_subclassing_restricted))
  */
 @property (assign, readonly, nonatomic) BOOL isDeleted;
 /**
+ Whether the message has been edited. If editedAt > createdAt, this value is true.
+ */
+@property (assign, readonly, nonatomic) BOOL isEdited;
+/**
  The sync state of the message.
  */
 @property (readonly, nonatomic) EkoSyncState syncState;
@@ -102,7 +106,7 @@ __attribute__((objc_subclassing_restricted))
 /**
  The last time this message has been updated.
  */
-@property (nullable, strong, readonly, nonatomic) NSDate *editedAtDate;
+@property (nonnull, strong, readonly, nonatomic) NSDate *editedAtDate;
 /**
    The message tags.
  */
