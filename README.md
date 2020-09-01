@@ -27,7 +27,7 @@ Refer to this [link](https://docs.upstra.co/ios/start) for manual installation.
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Upstra UIKit, add the following to your `Cartfile`.
 
 ```
-binary "https://github.com/EkoCommunications/EkoMessagingSDKUIKit/releases/download/1.0.0/UpstraUIKit.json" ~> 0.1.0
+binary "https://github.com/EkoCommunications/EkoMessagingSDKUIKit/releases/download/1.0.0/UpstraUIKit.json" ~> 1.0.0
 ```
 
 > Note: You can change 0.1.0 with the supported release tag
