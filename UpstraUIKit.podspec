@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
     s.name         = "UpstraUIKit"
-    s.version      = "v1.0.0"
+    s.version      = "1.0.0"
     s.summary      = "A brief description of UpstraUIKit project."
     s.description  = "An extended description of UpstraUIKit project."
     s.homepage     = "https://github.com/EkoCommunications/EkoMessagingSDKUIKit"
