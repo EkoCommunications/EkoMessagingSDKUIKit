@@ -13,21 +13,20 @@
 #import "EkoClient.h"
 #import "EkoCollection.h"
 #import "EkoChannelQueryBuilder.h"
-#import "EkoChannelFeedServicable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Repository provides access channel and collections of channels
  */
-@interface EkoChannelRepository : NSObject<EkoChannelFeedServicable>
+@interface EkoChannelRepository : NSObject
 
 @property (strong, readonly, nonatomic) EkoClient *client;
 @property (readonly, nonatomic) NSUInteger totalUnreadCount;
 
 /**
-   Designated intializer
-   @param client A valid context instance
+ * Designated intializer
+ * @param client A valid context instance
  */
 - (instancetype)initWithClient:(EkoClient *)client NS_DESIGNATED_INITIALIZER;
 
@@ -49,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param metadata Your custom metadata to associate with the channel
  * @param userIds An array of user Ids
  */
-- (EkoObject<EkoChannel *> *)createChannel:(nonnull NSString *)channelId
+- (EkoObject<EkoChannel *> *)createChannel:(nullable NSString *)channelId
                                displayName:(nullable NSString *)displayName
                                       type:(EkoChannelCreateType)type
                                   metadata:(nonnull NSDictionary<NSString *, id> *)metadata
@@ -64,26 +63,37 @@ NS_ASSUME_NONNULL_BEGIN
  * @param type The channel type
  * @param userIds An array of user Ids
  */
-- (EkoObject<EkoChannel *> *)createChannel:(nonnull NSString *)channelId
+- (EkoObject<EkoChannel *> *)createChannel:(nullable NSString *)channelId
                                       type:(EkoChannelCreateType)type
                                      users:(nonnull NSArray<NSString *> *)userIds;
 
 /**
-   Joins a channel by channel Id, if you are already in this channel, it will fetch the existing channel
-   @param channelId A valid Channel Id
-   @return A Proxy Object for the channel
+ * Create a channel
+ *
+ * @param channelId A channel Identifier
+ * @param displayName The Channel display name (this can be changed later)
+ * @param type The channel type
+ * @param metadata Your custom metadata to associate with the channel
+ * @param tags Your custom tags to associate with the channel
+ * @param userIds An array of user Ids
  */
-- (EkoObject<EkoChannel *> *)joinChannel:(nonnull NSString *)channelId type:(EkoChannelType)type DEPRECATED_MSG_ATTRIBUTE("Start from 3.0 this no longer be supported in the long term, please use createChannel instead.");
+- (nonnull EkoObject<EkoChannel *> *)createChannel:(nullable NSString *)channelId
+                                       displayName:(nullable NSString *)displayName
+                                              type:(EkoChannelCreateType)type
+                                          metadata:(nonnull NSDictionary<NSString *, id> *)metadata
+                                              tags:(nonnull NSArray<NSString *> *)tags
+                                             users:(nonnull NSArray<NSString *> *)userIds;
 
 /**
-   @param userIds An array of UserIds
-   @return A Proxy Object for the channel
+ * Joins a channel by channel Id, if you are already in this channel, it will fetch the existing channel. **Note:** Starting from SDK version 3.0, this method doesnot creates a new channel, if the channel doesnot exists.
+ * @param channelId A valid Channel Id
+ * @return A Proxy Object for the channel
  */
-// not to be implemented in 1.0
-// - (EkoObject<EkoChannel*> *)getDistinctChannelWithUsers:(NSArray <NSString *> *)userIds type:(EkoChannelType)type;
+- (EkoObject<EkoChannel *> *)joinChannel:(nonnull NSString *)channelId type:(EkoChannelType)type;
+
 
 /**
-   Gets an existing channel by channel Id
+ * Gets an existing channel by channel Id
  */
 - (EkoObject<EkoChannel *> *)getChannel:(nonnull NSString *)channelId;
 
@@ -128,23 +138,6 @@ NS_ASSUME_NONNULL_BEGIN
                                              excludingTags:(nonnull NSArray<NSString *> *)excludingTags DEPRECATED_MSG_ATTRIBUTE("Deprecated start from 3.0, this no longer be supported in the long term, please use channel collection with builder instead.");
 
 /**
- * Create a channel
- *
- * @param channelId A channel Identifier
- * @param displayName The Channel display name (this can be changed later)
- * @param type The channel type
- * @param metadata Your custom metadata to associate with the channel
- * @param tags Your custom tags to associate with the channel
- * @param userIds An array of user Ids
- */
-- (nonnull EkoObject<EkoChannel *> *)createChannel:(nonnull NSString *)channelId
-                                       displayName:(nullable NSString *)displayName
-                                              type:(EkoChannelCreateType)type
-                                          metadata:(nonnull NSDictionary<NSString *, id> *)metadata
-                                              tags:(nonnull NSArray<NSString *> *)tags
-                                             users:(nonnull NSArray<NSString *> *)userIds;
-
-/**
  * Create a conversation channel
  *
  * @param userId An user Identifier that we want to chat with
@@ -168,21 +161,6 @@ NS_ASSUME_NONNULL_BEGIN
    @abstract Channel Level Push Notifications Management object.
  */
 - (nonnull EkoChannelNotificationsManager *)notificationManagerForChannelId:(nonnull NSString *)channelId;
-
-/**
- * Search channels by the display name
- *
- * @param displayName The expected channel display name
- * @return Collection of EkoChannel Live object
- */
-- (nonnull EkoCollection<EkoChannel *> *)searchChannel:(nonnull NSString *)displayName;
-
-/**
- * Get channels by the recommendation that we calculate
- *
- * @return Collection of EkoChannel Live object base on recommendation
- */
-- (nonnull EkoCollection<EkoChannel *> *)suggestedChannelCollection;
 
 /**
    Block call of `init` and `new` because this object cannot be created directly

@@ -81,7 +81,7 @@ __attribute__((objc_subclassing_restricted))
 @property (assign, nonatomic, readonly) NSUInteger reactionsCount;
 
 /**
-  The list of my reactions to this message.
+  The list of my reactions to this post.
 */
 @property (nonnull, assign, readonly, nonatomic) NSArray <NSString *> *myReactions;
 
@@ -89,5 +89,15 @@ __attribute__((objc_subclassing_restricted))
  The reaction data.
  */
 @property (nullable, strong, readonly, nonatomic) NSDictionary *reactions;
+
+/**
+  Number of people that have flagged this post
+*/
+@property (assign, readonly, nonatomic) NSUInteger flagCount;
+
+/**
+ The sync state of the comment.
+ */
+@property (readonly, nonatomic) EkoSyncState syncState;
 
 @end

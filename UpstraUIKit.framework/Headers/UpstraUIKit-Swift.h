@@ -305,22 +305,110 @@ SWIFT_CLASS("_TtC11UpstraUIKit17EkoViewController")
 
 
 /// Eko chat home
-SWIFT_CLASS("_TtC11UpstraUIKit25EkoChatHomeViewController")
-@interface EkoChatHomeViewController : EkoViewController
+SWIFT_CLASS("_TtC11UpstraUIKit29EkoChatHomePageViewController")
+@interface EkoChatHomePageViewController : EkoViewController
 - (void)viewDidLoad;
 @end
 
 
 
 
+
+@class UITableView;
+@class UITableViewCell;
+
+SWIFT_CLASS("_TtC11UpstraUIKit34EkoColorPaletteTableViewController")
+@interface EkoColorPaletteTableViewController : UITableViewController
+- (void)viewDidLoad;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 SWIFT_CLASS("_TtC11UpstraUIKit34EkoCommunityHomePageViewController")
 @interface EkoCommunityHomePageViewController : EkoViewController
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)viewDidLoad;
 @end
 
 
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit27EkoCreatePostViewController")
+@interface EkoCreatePostViewController : EkoViewController
+- (void)viewDidLoad;
+@end
+
+
+@interface EkoCreatePostViewController (SWIFT_EXTENSION(UpstraUIKit)) <UINavigationControllerDelegate>
+@end
+
+
+
+
+
+
+
+
+
+@class EkoPhotoViewerController;
+@class UIPanGestureRecognizer;
+@class UIScrollView;
+
+SWIFT_PROTOCOL("_TtP11UpstraUIKit32EkoPhotoViewerControllerDelegate_")
+@protocol EkoPhotoViewerControllerDelegate <NSObject>
+@optional
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didScrollToPhotoAt:(NSInteger)index;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didZoomOnPhotoAtIndex:(NSInteger)didZoomOnPhotoAtIndex atScale:(CGFloat)scale;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didEndZoomingOnPhotoAtIndex:(NSInteger)didEndZoomingOnPhotoAtIndex atScale:(CGFloat)scale;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController willZoomOnPhotoAtIndex:(NSInteger)willZoomOnPhotoAtIndex;
+- (void)photoViewerControllerDidReceiveTapGesture:(EkoPhotoViewerController * _Nonnull)photoViewerController;
+- (void)photoViewerControllerDidReceiveDoubleTapGesture:(EkoPhotoViewerController * _Nonnull)photoViewerController;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController willBeginPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)gestureRecognizer;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didEndPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)gestureRecognizer;
+- (void)photoViewerControllerDidEndPresentingAnimation:(EkoPhotoViewerController * _Nonnull)photoViewerController;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController scrollViewDidScroll:(UIScrollView * _Nonnull)scrollViewDidScroll;
+@end
+
+
+@interface EkoCreatePostViewController (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDelegate>
+- (void)photoViewerControllerDidEndPresentingAnimation:(EkoPhotoViewerController * _Nonnull)photoViewerController;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didScrollToPhotoAt:(NSInteger)index;
+@end
+
+
+
+@class UIImageView;
+@class EkoPhotoCollectionViewCell;
+
+SWIFT_PROTOCOL("_TtP11UpstraUIKit34EkoPhotoViewerControllerDataSource_")
+@protocol EkoPhotoViewerControllerDataSource <NSObject>
+/// Total number of photo in viewer.
+- (NSInteger)numberOfItemsIn:(EkoPhotoViewerController * _Nonnull)photoViewerController SWIFT_WARN_UNUSED_RESULT;
+/// Configure each photo in viewer
+/// Implementation for photoViewerController:configurePhotoAt:withImageView is mandatory.
+/// Not implementing this method will cause viewer not to work properly.
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configurePhotoAt:(NSInteger)index withImageView:(UIImageView * _Nonnull)imageView;
+@optional
+/// This is usually used if you have custom EkoPhotoCollectionViewCell and configure each photo differently.
+/// Remember this method cannot be a replacement of photoViewerController:configurePhotoAt:withImageView
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configureCell:(EkoPhotoCollectionViewCell * _Nonnull)cell forPhotoAt:(NSInteger)index;
+/// This method provide the specific referenced view for each photo item in viewer that will be used for smoother dismissal transition.
+- (UIView * _Nullable)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController referencedViewForPhotoAt:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface EkoCreatePostViewController (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDataSource>
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configureCell:(EkoPhotoCollectionViewCell * _Nonnull)cell forPhotoAt:(NSInteger)index;
+- (UIView * _Nullable)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController referencedViewForPhotoAt:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)numberOfItemsIn:(EkoPhotoViewerController * _Nonnull)photoViewerController SWIFT_WARN_UNUSED_RESULT;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configurePhotoAt:(NSInteger)index withImageView:(UIImageView * _Nonnull)imageView;
+@end
 
 
 SWIFT_CLASS("_TtC11UpstraUIKit11EkoDocument")
@@ -385,6 +473,27 @@ SWIFT_CLASS("_TtC11UpstraUIKit28EkoGalleryCollectionViewCell")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit27EkoGlobalFeedViewController")
+@interface EkoGlobalFeedViewController : EkoViewController
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+@end
+
+
+
+
+@interface EkoGlobalFeedViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+
+
+
+
 
 @class Settings;
 @class UIBarButtonItem;
@@ -461,6 +570,8 @@ SWIFT_CLASS("_TtC11UpstraUIKit23EkoImagePickerImageView")
 
 SWIFT_CLASS("_TtC11UpstraUIKit28EkoMessageListViewController")
 @interface EkoMessageListViewController : EkoViewController
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 @end
@@ -473,12 +584,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit28EkoMessageListViewController")
 
 
 
-@class UIScrollView;
-
-@interface EkoMessageListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
-- (void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
-@end
-
 @class UIImagePickerController;
 
 @interface EkoMessageListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -486,12 +591,29 @@ SWIFT_CLASS("_TtC11UpstraUIKit28EkoMessageListViewController")
 - (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
 @end
 
-@class UITableView;
-@class UITableViewCell;
+
+@interface EkoMessageListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
+- (void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+
 
 @interface EkoMessageListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit25EkoNewsfeedViewController")
+@interface EkoNewsfeedViewController : EkoViewController
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)viewDidLoad;
 @end
 
 
@@ -584,40 +706,7 @@ SWIFT_CLASS("_TtC11UpstraUIKit24EkoPhotoViewerController")
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
 
-@class UIImageView;
 
-SWIFT_PROTOCOL("_TtP11UpstraUIKit34EkoPhotoViewerControllerDataSource_")
-@protocol EkoPhotoViewerControllerDataSource <NSObject>
-/// Total number of photo in viewer.
-- (NSInteger)numberOfItemsIn:(EkoPhotoViewerController * _Nonnull)photoViewerController SWIFT_WARN_UNUSED_RESULT;
-/// Configure each photo in viewer
-/// Implementation for photoViewerController:configurePhotoAt:withImageView is mandatory.
-/// Not implementing this method will cause viewer not to work properly.
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configurePhotoAt:(NSInteger)index withImageView:(UIImageView * _Nonnull)imageView;
-@optional
-/// This is usually used if you have custom EkoPhotoCollectionViewCell and configure each photo differently.
-/// Remember this method cannot be a replacement of photoViewerController:configurePhotoAt:withImageView
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configureCell:(EkoPhotoCollectionViewCell * _Nonnull)cell forPhotoAt:(NSInteger)index;
-/// This method provide the specific referenced view for each photo item in viewer that will be used for smoother dismissal transition.
-- (UIView * _Nullable)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController referencedViewForPhotoAt:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@class UIPanGestureRecognizer;
-
-SWIFT_PROTOCOL("_TtP11UpstraUIKit32EkoPhotoViewerControllerDelegate_")
-@protocol EkoPhotoViewerControllerDelegate <NSObject>
-@optional
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didScrollToPhotoAt:(NSInteger)index;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didZoomOnPhotoAtIndex:(NSInteger)didZoomOnPhotoAtIndex atScale:(CGFloat)scale;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didEndZoomingOnPhotoAtIndex:(NSInteger)didEndZoomingOnPhotoAtIndex atScale:(CGFloat)scale;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController willZoomOnPhotoAtIndex:(NSInteger)willZoomOnPhotoAtIndex;
-- (void)photoViewerControllerDidReceiveTapGesture:(EkoPhotoViewerController * _Nonnull)photoViewerController;
-- (void)photoViewerControllerDidReceiveDoubleTapGesture:(EkoPhotoViewerController * _Nonnull)photoViewerController;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController willBeginPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)gestureRecognizer;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didEndPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)gestureRecognizer;
-- (void)photoViewerControllerDidEndPresentingAnimation:(EkoPhotoViewerController * _Nonnull)photoViewerController;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController scrollViewDidScroll:(UIScrollView * _Nonnull)scrollViewDidScroll;
-@end
 
 
 SWIFT_CLASS("_TtC11UpstraUIKit27EkoPostDetailViewController")
@@ -641,23 +730,11 @@ SWIFT_CLASS("_TtC11UpstraUIKit27EkoPostDetailViewController")
 @end
 
 
-
-
-SWIFT_CLASS("_TtC11UpstraUIKit25EkoPostFeedViewController")
-@interface EkoPostFeedViewController : EkoViewController
-- (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)animated;
+@interface EkoPostDetailViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
-
-
-@interface EkoPostFeedViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 
 
 
@@ -692,38 +769,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit20EkoPostTableViewCell")
 @end
 
 
-SWIFT_CLASS("_TtC11UpstraUIKit21EkoPostViewController")
-@interface EkoPostViewController : EkoViewController
-- (void)viewDidLoad;
-@end
-
-
-@interface EkoPostViewController (SWIFT_EXTENSION(UpstraUIKit)) <UINavigationControllerDelegate>
-@end
-
-
-
-
-
-
-
-
-
-
-@interface EkoPostViewController (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDelegate>
-- (void)photoViewerControllerDidEndPresentingAnimation:(EkoPhotoViewerController * _Nonnull)photoViewerController;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didScrollToPhotoAt:(NSInteger)index;
-@end
-
-
-
-
-@interface EkoPostViewController (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDataSource>
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configureCell:(EkoPhotoCollectionViewCell * _Nonnull)cell forPhotoAt:(NSInteger)index;
-- (UIView * _Nullable)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController referencedViewForPhotoAt:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)numberOfItemsIn:(EkoPhotoViewerController * _Nonnull)photoViewerController SWIFT_WARN_UNUSED_RESULT;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configurePhotoAt:(NSInteger)index withImageView:(UIImageView * _Nonnull)imageView;
-@end
 
 
 
@@ -787,6 +832,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Settings * _
 ///
 - (void)presentImagePicker:(EkoImagePickerController * _Nonnull)imagePicker animated:(BOOL)animated select:(void (^ _Nullable)(PHAsset * _Nonnull))select deselect:(void (^ _Nullable)(PHAsset * _Nonnull))deselect cancel:(void (^ _Nullable)(NSArray<PHAsset *> * _Nonnull))cancel finish:(void (^ _Nullable)(NSArray<PHAsset *> * _Nonnull))finish completion:(void (^ _Nullable)(void))completion;
 @end
+
+
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
