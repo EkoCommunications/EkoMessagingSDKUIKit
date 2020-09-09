@@ -6,51 +6,51 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		JIai7W0z0XtJybk0HOK3b+g8PQw=
+		fWxwUVCTgByoIaDcu3QjkEK/HGQ=
 		</data>
 		<key>EkoAvatarView.nib</key>
 		<data>
-		LGrmOqSzJZcLoUHnVLw7eCIOVxU=
+		dBpTg1Jj6MjuNjByeXGXv1XIl48=
 		</data>
 		<key>EkoBadgeView.nib</key>
 		<data>
-		+gFvHPwk8NA9kv/KoBKzzMOV6y8=
+		lOPN2Ml45pbc/rDTFfxRURsDEw0=
 		</data>
 		<key>EkoChannelHeaderView.nib</key>
 		<data>
-		JVdUqIox6a+HweCGBrQlJ8vO5rI=
+		s3BDX80hw9U7ytuPcUdebLOkiQI=
 		</data>
 		<key>EkoCommentTableViewCell.nib</key>
 		<data>
-		Q9FBlADNvDFYJeiw0DArZkP6HLE=
+		LkNA75rMltLtCEXffL8sJu5niTQ=
 		</data>
 		<key>EkoComunitySelectionTableViewCell.nib</key>
 		<data>
-		JL+SRy2vO2PeOU8ZbqS/8R/kprQ=
+		kiQTuqGczLuQsmWo+Y9JkwFh0Ks=
 		</data>
 		<key>EkoCreateCommunityViewController.nib</key>
 		<data>
-		7SKsGLDMGEnOYjxQ67TFIedKArc=
+		MZ6Gqp/IP7/GB0dvHBgur8ueFnE=
 		</data>
 		<key>EkoEditTextViewController.nib</key>
 		<data>
-		sbfKyxN7TzTpaA/QL5MnbO3s8Rs=
+		LwqY/ADxqPefap1dv+9DfuLOAgY=
 		</data>
 		<key>EkoEmptyView.nib</key>
 		<data>
-		AHwD2+4ua5ikzxl8lEIcHz/LffE=
+		DvbyWCWnZCyKcUHyJn9ZSJqJBRw=
 		</data>
 		<key>EkoFileTableViewCell.nib</key>
 		<data>
-		n3uD55o4Ulrd935Em39312BGTqg=
+		Igp7wzEK/LAEdZCHrYYkNPmxPPE=
 		</data>
 		<key>EkoGalleryCollectionViewCell.nib/objects-12.3+.nib</key>
 		<data>
-		FreP+KH3T3QOZBcXlaHxyat6kW0=
+		O2/BKEEyzDWbCyqPsoRIMh4nSAo=
 		</data>
 		<key>EkoGalleryCollectionViewCell.nib/runtime.nib</key>
 		<data>
-		pihKolHAZzkAwHW0SV9jJgHcmGs=
+		y85nXi/HYhQD3ux5oZrzAv4Q99U=
 		</data>
 		<key>EkoLocalizable.strings</key>
 		<data>
@@ -58,87 +58,87 @@
 		</data>
 		<key>EkoMemberCollectionViewCell.nib/objects-12.3+.nib</key>
 		<data>
-		CJjSeldCqQmA0p9qL+S56qhqD48=
+		CxekV2vN1/+cWQawfBUsit4Wvik=
 		</data>
 		<key>EkoMemberCollectionViewCell.nib/runtime.nib</key>
 		<data>
-		MyqZiZjPiHUXq1CBwYx5vP7AqzE=
+		6oKmYs3y7srK+0ylvVsM6QB+XTA=
 		</data>
 		<key>EkoMessageDateView.nib</key>
 		<data>
-		0cCdAjmfv7nA3CeQREPm4NgRmJo=
+		/z4GIfiC6bXCQCwUKuC2LxFadyw=
 		</data>
 		<key>EkoMessageHeaderDisplayView.nib</key>
 		<data>
-		7yVfGMgY65AbmpbyN1lUV+FLb/4=
+		GZtGkzLpVB75ANcLCjLj00IzDDg=
 		</data>
 		<key>EkoMessageImageIncomingTableViewCell.nib</key>
 		<data>
-		Q8CnlIJI+vRDmQMjJjrmiuNSCGc=
+		upOb5BTg6JoxSYgtS+SgBfeBkDo=
 		</data>
 		<key>EkoMessageImageOutgoingTableViewCell.nib</key>
 		<data>
-		grg6EzIz2iIabj7gvzyWO/nVCbk=
+		RmO+gONnxJS4i6qlQ99bRWX6B7I=
 		</data>
 		<key>EkoMessageListViewController.nib</key>
 		<data>
-		nQuO9BVDyUo9QFmdp1iL8+mmkPA=
+		o5Rjuqhc8poChmjS1dFKy5eX4cY=
 		</data>
 		<key>EkoMessageTextIncomingTableViewCell.nib</key>
 		<data>
-		v5nXpQD7+B+ElZpZyTMMwwN4fBQ=
+		G2AD5uTbrvgdaA8i/YUeyNQPE0Y=
 		</data>
 		<key>EkoMessageTextOutgoingTableViewCell.nib</key>
 		<data>
-		i7c7aNhwhBCmIeDaCk8mQMg0SME=
+		2zIfON/qIXd/RcKGYz4/nYQ5Gss=
 		</data>
 		<key>EkoNewsfeedEmptyView.nib</key>
 		<data>
-		rQnoR+tXWh1GQGqth38l/60nVlw=
+		D5V0+x31GF0M126M0nyv9HvOWXE=
 		</data>
 		<key>EkoNewsfeedViewController.nib</key>
 		<data>
-		ZGEUlxNZYW6DQrWENbNW3Z6e/K8=
+		nS3OEeu2Q5FS1ykuGnIOy5VRSQ0=
 		</data>
 		<key>EkoPostTableViewCell.nib</key>
 		<data>
-		yTKWZvlkVlLFP2rp2L9lImYtlcI=
+		4llJKoliNOjyS3Bp+A2kXhVKwzg=
 		</data>
 		<key>EkoRecentsChatTableViewCell.nib</key>
 		<data>
-		ED0UE53CIeSxm0QCPCjrjSkDGi0=
+		QKNLnpraCRVQ+86wRBIL4KugqLw=
 		</data>
 		<key>EkoRecentsChatViewController.nib</key>
 		<data>
-		4X41hQTE5XEi90+RIhyMH1bNxG0=
+		9f0wgdkaEuzDFb1Won8N/algXHc=
 		</data>
 		<key>EkoSelectMemberListCollectionViewCell.nib/objects-12.3+.nib</key>
 		<data>
-		w47tBfyc8HP98ieMn0RlCM4Ejwg=
+		XaGe8OQVscN6PA8V1i5UQIE2E8s=
 		</data>
 		<key>EkoSelectMemberListCollectionViewCell.nib/runtime.nib</key>
 		<data>
-		Ir0PGQSMx/SjuMa2QDs8c7GQoNs=
+		TZrsy3047JijDY+vxsUX3dqrbJw=
 		</data>
 		<key>EkoSelectMemberListHeaderView.nib</key>
 		<data>
-		hxlDTfHZ7GiqyaIvHsk++7BQ9Po=
+		oomQ+uod723NY/322Z0wE+FbXAU=
 		</data>
 		<key>EkoSelectMemberListTableViewCell.nib</key>
 		<data>
-		h4Y9LxQwTCj3Ch2DGBYUFUDqFlk=
+		XOSmj4MEMQgHYBBQyMAQjskWxys=
 		</data>
 		<key>EkoSelectMemberListViewController.nib</key>
 		<data>
-		Gro9d6g7iWKYQTXm2nh9J6Wll3Q=
+		dCkzHrjbvDzEc62hCghB5pCcv+c=
 		</data>
 		<key>EkoTextComposeBar.nib</key>
 		<data>
-		Mp9ZRq4TD4t4H91p5vV6yjSYfPE=
+		KX0ZoKUvasYPdImRGN0WpJD2/GI=
 		</data>
 		<key>EkoTextMessageView.nib</key>
 		<data>
-		8r8pw7MAhZJOhhgrhocDcfM39zI=
+		IoluY7zjBRZ7vR93qkkawL2yOkM=
 		</data>
 		<key>Headers/UpstraUIKit-Swift.h</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>Modules/UpstraUIKit.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		2+9K2E+RkFFCQswebFQ0qHwKPYs=
+		b3OLqYJnnKTzaM+F3afKg8ImQ9A=
 		</data>
 		<key>Modules/UpstraUIKit.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -166,7 +166,7 @@
 		</data>
 		<key>Modules/UpstraUIKit.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		2+9K2E+RkFFCQswebFQ0qHwKPYs=
+		b3OLqYJnnKTzaM+F3afKg8ImQ9A=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -183,84 +183,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZebDkQYyWlYDm9Uy+SCPDPF42gf5oWGFratihbLstS4=
+			cbu17efPwroSVTZxLU86QgXHyyBsaSjLZArMotvU+Ro=
 			</data>
 		</dict>
 		<key>EkoAvatarView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KMhn/Wi+LEhuGm5ZKzkZRdCxlHIIeddzzlbsyufiuU4=
+			s6VUFbonflYZ/ySBYIulqmS3Zl7z8eoOR9gbqYllLtI=
 			</data>
 		</dict>
 		<key>EkoBadgeView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qps+FcZhrcE2kCnyqo7TecFe0mY0sOVOTMyeqjSDj0U=
+			TGDUe3IsyKhQd02H6+TZXJApXtP94g7X/BHEEqKuEgg=
 			</data>
 		</dict>
 		<key>EkoChannelHeaderView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hDoeHRgV1MbYMAVFRpk01HVWk6/hJNKNQFYb8NmfDIU=
+			kPwaEb8kgY6eCNdFOU74T4fNbhN/jYE2Bnk5vUJtaaA=
 			</data>
 		</dict>
 		<key>EkoCommentTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/ivaChSpGRSVNiXCxukFrA0z6fyJuLgNOkJWanXmZKM=
+			07s5yUAL6fbPEn7AwqQ/LUkA+0UD6cN0bLAQblXvPn0=
 			</data>
 		</dict>
 		<key>EkoComunitySelectionTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cm7reCb4By5obfOyj2ijya3JZoEbm55utz7wp+SmaQs=
+			KOzqrYtk5DXdVd2TtfmLU3IZJBXRDk1B9zKsExAeflk=
 			</data>
 		</dict>
 		<key>EkoCreateCommunityViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hMyRpGnS8IfkorqikZ2j9wFJkS6Eqg2G9jeUp7Cx5hk=
+			EaCNcMxQvZgHmhTbsNRNIQ+pBppZ58Fmu8dXAoPcNAM=
 			</data>
 		</dict>
 		<key>EkoEditTextViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QqrlEPmz69yW/WtmzBYBe0g5/iX7W7J6KkWqd3OMtT8=
+			Q+TBrDoPTmpsI1h65N2iH7VGll8Q833b21N8g9s9KTo=
 			</data>
 		</dict>
 		<key>EkoEmptyView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cDo7L6TvzME8mVj+D2F+IvoynGGoNm/ElTL1c/hevCg=
+			IHKH5SO0BH+3xjOK34DI52OvzoVrslhoavBe0D1KrLM=
 			</data>
 		</dict>
 		<key>EkoFileTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HI0rXcxa8+4g5ynxIvFMbqRduS9li1kDzxBYIit2bG0=
+			0sh1XibQwfAXQ5l78bYnDrdkybt0VmwbDIyxJx511Kk=
 			</data>
 		</dict>
 		<key>EkoGalleryCollectionViewCell.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4HeUh7ci3XfY6ZSNEWg19qXzt6PhHIw2ksoneAmRaRQ=
+			njJzLhZ21fFxsM+3MaG3jGsy49lnA4sENwVY7pH53u4=
 			</data>
 		</dict>
 		<key>EkoGalleryCollectionViewCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JXPlU2L2kIUgaa3uuO3JpjBp4y2DT6hRZxDPAv2p+Jc=
+			pNBVnxTac46taceCA+IryBCyvkP/jjZ5G6KVru1/am8=
 			</data>
 		</dict>
 		<key>EkoLocalizable.strings</key>
@@ -274,147 +274,147 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4VSKEaw/YhWTW1NhB1WKjr2hv0Q0BiBMiZoRHN6nGkw=
+			IELHo3Gnexv4BbIgeDCUiGhVZhRDDLfGdFPdyOrOJAI=
 			</data>
 		</dict>
 		<key>EkoMemberCollectionViewCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8biCLgVfaViyA4daT1v8ZlPbXFeZ9ooRFwOE9PwciTA=
+			2raL0TtmgmyGozgw++dqo7p5vaSIjS525OPL1H4+5bc=
 			</data>
 		</dict>
 		<key>EkoMessageDateView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9MNZPOLW2xV+q+xXs0+0v7lTzfXIcsRlj1SO3/swxCU=
+			d4Ka8YLnQ1rxznbFnhRDDN0c81PSg710YYI8JQYHjYM=
 			</data>
 		</dict>
 		<key>EkoMessageHeaderDisplayView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fk/0b4Fde59hHgTFxhkOuzeHjmTvB4ZXjSvrVSaIYwg=
+			gyPyKZj9mN/MXOSBFFouL1sy9JIsYtNBsoLBsmmu4kQ=
 			</data>
 		</dict>
 		<key>EkoMessageImageIncomingTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			124G4I/lGTb3/rHG7hPbEwVmzEzkAhsrHKY2XDYEy5g=
+			+Az+fKCHY0BhPLQRGZWuS1S4g8SeB4QKTjwL+MKppwg=
 			</data>
 		</dict>
 		<key>EkoMessageImageOutgoingTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jSLPTzVxvPurdkB2S9vORuvN9WVYWxR5K59cllYaGuY=
+			78OGRgh7Pf/sHY2gZ6DBRsmzLp2poOeSJUsfA3OU4ig=
 			</data>
 		</dict>
 		<key>EkoMessageListViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			p13nkSQh9icGNhoiX/SzGirzHCxBvHwt1QGZN5zUo7o=
+			jTWCMAmwO2gJSamnLXRMH0VvquyqTKtC7VchFsV0z5E=
 			</data>
 		</dict>
 		<key>EkoMessageTextIncomingTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7CG1NKkAATh1SGbxq/ceeXt9u/rJ8wsUoN8V82femYY=
+			mh/aam98jlr8YpBX7e0+bmq9CatSx2NkbtSDDA9Urlo=
 			</data>
 		</dict>
 		<key>EkoMessageTextOutgoingTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/9lanvDR4TmbpcvxvmprEVwN9iANpvMhwj//jH+GDA4=
+			gIOpZN8fq7Za0Bg14q2V0JL3B2PPuf31FPnj5Bfbz68=
 			</data>
 		</dict>
 		<key>EkoNewsfeedEmptyView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			X497BstqGw72bZUqFRTDcwb7HEuFLAVsjSaXRpar+q4=
+			r2n2MJzUGxeBa5ibNVRQGK92p10peSF6DphhknU2AOQ=
 			</data>
 		</dict>
 		<key>EkoNewsfeedViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rVApd+3dZZHuXTpKXiOq6sBkKyZmpFOLMFtkVuT6BjY=
+			tjpMaXSYC2Sol5JRrKHC40be9x2sNL2r+3PBf+V6JEE=
 			</data>
 		</dict>
 		<key>EkoPostTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7noGzray7HeDWebdwC8sXD8Nas6Z0Em/fe9nq4cm2Eg=
+			oPbZ4nwasnifyDsXzdFrnUVCeUKdjPtfvxYkcOD6wmA=
 			</data>
 		</dict>
 		<key>EkoRecentsChatTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			32T2kTJnY8MEiwY0FvNEFBtRi2yxgNuRP2fbGeHU70g=
+			sCfOMaz3+lEyfhvnUWNor7MGVn9Kp+C+oyCSfpvjDL4=
 			</data>
 		</dict>
 		<key>EkoRecentsChatViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			alxMO1faX7Oua0kjaXtTf8rr982+g2/UcalAjEExr4E=
+			sGqM9scPxpHhLwXLdo56+cE/OsrzMr5HsZfc0ApwvnE=
 			</data>
 		</dict>
 		<key>EkoSelectMemberListCollectionViewCell.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xOC+ji2OPDxHSDjHUDoxDp9uZxbm72gK4vw2BM/TJZ8=
+			Oi+B11U/jIEyezAOrDPm4UmDu8k4AB5CXJTi2FIthwo=
 			</data>
 		</dict>
 		<key>EkoSelectMemberListCollectionViewCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0ALWJNt7HrAMB2siprdC3VRJA6QIUvyxEx9f80oqduQ=
+			F1s5BlIX3gj44h/B6jJ8rXfE7WLooMey2K8qHwX684Y=
 			</data>
 		</dict>
 		<key>EkoSelectMemberListHeaderView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MM0zieS57zYcylx57AEsjSAEMxJKWQsUAZy9VFVtWCQ=
+			sVXsabDOqyTAlMfinznQjVXuxSlI4nMH/gguo3K01EE=
 			</data>
 		</dict>
 		<key>EkoSelectMemberListTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nTG+7LLRQemOK6aJO67XK9QvCDJjrh/j1XshZOhx1AE=
+			VY2ZMyQZlaeg6oyi+zllNf1h7nWcdhz5EW9v5h2Lx5k=
 			</data>
 		</dict>
 		<key>EkoSelectMemberListViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zhucftl1XKiK3JEv7hgkobODFB/bouE7WZCZ3GBYjJ8=
+			truC+Ofz6nhBoxemfGY+0wd+Ctc/PpxIUUK3eQkwpPg=
 			</data>
 		</dict>
 		<key>EkoTextComposeBar.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			c7oNMMJmSU1FULYIp5AkJaxg1WbtyzriZAJyxjHo/iU=
+			NjclRm1043n/ZgZaZBUkm/g9DVkwMuONLA90K5CsU54=
 			</data>
 		</dict>
 		<key>EkoTextMessageView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BwlnLDNBRb6Mj1qOq4w9/fhePuD8+Mx3c90OpmLNYhI=
+			XjObWsGDVTfB5cqApdt/KsJ83m9wBm8i/JOfTqGtTQY=
 			</data>
 		</dict>
 		<key>Headers/UpstraUIKit-Swift.h</key>
@@ -442,7 +442,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xFCZvOzsj+0GoIc+8eyoc3CcsmgQUdFzkTw3HbiOaTk=
+			GFKb7CYHu084//qI/4HObfE2V8DMf5dXxehRMb1R6H8=
 			</data>
 		</dict>
 		<key>Modules/UpstraUIKit.swiftmodule/arm64.swiftdoc</key>
@@ -456,7 +456,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xFCZvOzsj+0GoIc+8eyoc3CcsmgQUdFzkTw3HbiOaTk=
+			GFKb7CYHu084//qI/4HObfE2V8DMf5dXxehRMb1R6H8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
