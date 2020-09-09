@@ -45,14 +45,12 @@ Creates a new Community Manager (convenience class for handling Community).
 Get the collection of communities.
 
 @param keyword The keyword of display name that want to be searched
-@param tags The tags of the communities
 @param filter The filter option that user wish to select
 @param sortBy The sort option that user wish to select
 @return The EkoCollection of EkoCommunity  object. Observe the changes for getting the result.
  
 */
 - (nonnull EkoCollection<EkoCommunity *> *)getCommunitiesWithKeyword:(nonnull NSString *)keyword
-                                                                tags:(nullable NSArray<NSString *> *)tags
                                                               filter:(EkoCommunityQueryFilter)filter
                                                               sortBy:(EkoCommunitySortOption)sortBy;
 

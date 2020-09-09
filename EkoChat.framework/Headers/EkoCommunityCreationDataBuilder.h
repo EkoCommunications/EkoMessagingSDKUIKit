@@ -28,11 +28,6 @@ Sets the current status public or not
 - (void)setIsPublic:(BOOL)isPublic;
 
 /**
- Sets the current tags
- */
-- (void)setTags:(NSArray<NSString *> *)tags;
-
-/**
  Sets the current user ids
  */
 - (void)setUserIds:(NSArray<NSString *> *)userIds;

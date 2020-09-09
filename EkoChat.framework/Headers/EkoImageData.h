@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface EkoImageData : NSObject
 
 @property (strong, nonatomic) NSString *fileId;
+@property (strong, nonatomic) NSDictionary<NSString *, id> *attributes;
+@property (strong, nonatomic) NSDictionary<NSString *, id> *metadata;
 
 - (instancetype)initWithResponse:(NSDictionary<NSString *, id> *)response;
 
