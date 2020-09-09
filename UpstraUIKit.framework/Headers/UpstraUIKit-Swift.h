@@ -339,6 +339,8 @@ SWIFT_CLASS("_TtC11UpstraUIKit34EkoCommunityHomePageViewController")
 
 
 
+
+
 SWIFT_CLASS("_TtC11UpstraUIKit27EkoCreatePostViewController")
 @interface EkoCreatePostViewController : EkoViewController
 - (void)viewDidLoad;
@@ -482,12 +484,12 @@ SWIFT_CLASS("_TtC11UpstraUIKit27EkoGlobalFeedViewController")
 @end
 
 
-
-
 @interface EkoGlobalFeedViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 
@@ -570,10 +572,9 @@ SWIFT_CLASS("_TtC11UpstraUIKit23EkoImagePickerImageView")
 
 SWIFT_CLASS("_TtC11UpstraUIKit28EkoMessageListViewController")
 @interface EkoMessageListViewController : EkoViewController
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
 @end
 
 
@@ -753,12 +754,12 @@ SWIFT_CLASS("_TtC11UpstraUIKit20EkoPostTableViewCell")
 
 
 
+
+
 @interface EkoPostTableViewCell (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDelegate>
 - (void)photoViewerControllerDidEndPresentingAnimation:(EkoPhotoViewerController * _Nonnull)photoViewerController;
 - (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didScrollToPhotoAt:(NSInteger)index;
 @end
-
-
 
 
 @interface EkoPostTableViewCell (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDataSource>
@@ -769,6 +770,13 @@ SWIFT_CLASS("_TtC11UpstraUIKit20EkoPostTableViewCell")
 @end
 
 
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit19EkoViewPagerTabView")
+@interface EkoViewPagerTabView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 
