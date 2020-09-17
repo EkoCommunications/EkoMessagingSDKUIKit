@@ -246,8 +246,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit25BottomSheetViewController")
 @end
 
 
-
-
 SWIFT_CLASS("_TtC11UpstraUIKit7EkoView")
 @interface EkoView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
@@ -268,6 +266,7 @@ SWIFT_CLASS("_TtC11UpstraUIKit13EkoAvatarView")
 /// Eko button for custom display and states
 SWIFT_CLASS("_TtC11UpstraUIKit9EkoButton")
 @interface EkoButton : UIButton
+@property (nonatomic, getter=isSelected) BOOL selected;
 - (void)awakeFromNib;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
@@ -472,6 +471,8 @@ SWIFT_CLASS("_TtC11UpstraUIKit27EkoGlobalFeedViewController")
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 
@@ -701,9 +702,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit27EkoPostDetailViewController")
 
 
 
-@interface EkoPostDetailViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
-- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@end
 
 
 
@@ -719,6 +717,15 @@ SWIFT_CLASS("_TtC11UpstraUIKit27EkoPostDetailViewController")
 
 
 
+
+
+@interface EkoPostDetailViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 
@@ -829,8 +836,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Settings * _
 ///
 - (void)presentImagePicker:(EkoImagePickerController * _Nonnull)imagePicker animated:(BOOL)animated select:(void (^ _Nullable)(PHAsset * _Nonnull))select deselect:(void (^ _Nullable)(PHAsset * _Nonnull))deselect cancel:(void (^ _Nullable)(NSArray<PHAsset *> * _Nonnull))cancel finish:(void (^ _Nullable)(NSArray<PHAsset *> * _Nonnull))finish completion:(void (^ _Nullable)(void))completion;
 @end
-
-
 
 
 
