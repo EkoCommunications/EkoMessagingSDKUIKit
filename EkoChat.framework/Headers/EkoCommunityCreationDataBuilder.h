@@ -7,6 +7,7 @@
 //
 
 #import "EkoBuilder.h"
+@class UIImage;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -36,6 +37,16 @@ Sets the current status public or not
  Sets the current metadata
  */
 - (void)setMetadata:(NSDictionary<NSString *, id> *)metadata;
+
+/**
+ Sets the community avatar
+ */
+- (void)setAvatar:(nonnull UIImage *)image;
+
+/**
+ Sets category id for community
+ */
+- (void)setCategoryIds:(nonnull NSArray<NSString *> *)categoryIds;
 
 @end
 

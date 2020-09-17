@@ -13,10 +13,9 @@
 @class EkoCommunity;
 @class EkoUser;
 @class EkoCommunityModeration;
+@class EkoImageData;
+@class EkoCommunityCategory;
 
-/**
- * Group
- */
 __attribute__((objc_subclassing_restricted))
 @interface EkoCommunity : NSObject
 
@@ -36,6 +35,11 @@ __attribute__((objc_subclassing_restricted))
 @property (nonnull, strong, readonly, nonatomic) NSString *userId;
 
 /**
+ User object which belongs to this userId.
+ */
+@property (nullable, nonatomic) EkoUser *user;
+
+/**
  * The display name of the community
  */
 @property (nonnull, strong, readonly, nonatomic) NSString *displayName;
@@ -44,11 +48,6 @@ __attribute__((objc_subclassing_restricted))
  * The description of the community
  */
 @property (nonnull, strong, readonly, nonatomic) NSString *communityDescription;
-
-/**
- * The avatar url of the community
- */
-@property (nonnull, strong, readonly, nonatomic) NSString *avatarFileUrl;
 
 /**
    Number of post count on this community
@@ -95,7 +94,6 @@ __attribute__((objc_subclassing_restricted))
  */
 @property (nonnull, strong, nonatomic) NSDate *createdAt;
 
-
 /**
    @abstract The community last edited time
    @discussion The updated time is updated for updated data on the community
@@ -107,5 +105,19 @@ __attribute__((objc_subclassing_restricted))
  */
 @property (nonnull, readonly, nonatomic) EkoCommunityModeration *moderate;
 
+/**
+ * The avatar model of the community
+ */
+@property (nullable, strong, readonly, nonatomic) EkoImageData *avatar;
+
+/**
+ Category Ids for this community
+ */
+@property (nonnull, nonatomic) NSArray<NSString *> *categoryIds;
+
+/**
+ Array of categories this community belongs to.
+ */
+@property (nonnull, nonatomic) NSArray<EkoCommunityCategory *> *categories;
 
 @end

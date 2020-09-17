@@ -11,6 +11,9 @@
 
 @class EkoPost;
 @class EkoUser;
+@class EkoImageData;
+@class EkoFileData;
+@class EkoComment;
 
 /**
  * Post
@@ -68,12 +71,16 @@ __attribute__((objc_subclassing_restricted))
  */
 @property (nonnull, strong, nonatomic) NSDate *createdAt;
 
-
 /**
    @abstract The post last edited time
    @discussion The updated time is updated for updated data on the post
  */
 @property (nonnull, strong, nonatomic) NSDate *updatedAt;
+
+/**
+ Timestamp when this post was last edited by user. For newly created post, `createdAt` & `editedAt` would be the same
+ */
+@property (nonnull, strong, nonatomic) NSDate *editedAt;
 
 /**
   Number of reaction on this post
@@ -99,5 +106,44 @@ __attribute__((objc_subclassing_restricted))
  The sync state of the comment.
  */
 @property (readonly, nonatomic) EkoSyncState syncState;
+
+/**
+ Determines if this post has been edited.
+ */
+@property (readonly, nonatomic) BOOL isEdited;
+
+/**
+ Id of the parent post
+ */
+@property (nullable, nonatomic) NSString *parentPostId;
+
+/**
+ Total number of comments in this post.
+ */
+@property (readonly, nonatomic) NSUInteger commentsCount;
+
+/**
+ Returns array of children posts.
+ */
+@property (nullable, nonatomic) NSArray<EkoPost *> *childrenPosts;
+
+/**
+ Fetches few latest comments. To fetch all comments use `EkoCommentRepository`.
+ */
+- (void)getLatestComments:(void(^ _Nonnull)(NSArray<EkoComment *> * _Nonnull))completion;
+
+/**
+ Gets the file data associated with this post.
+ 
+ @return: Returns EkoFileData if present. Else returns nil.
+ */
+- (nullable EkoFileData *)getFileInfo;
+
+/**
+ Gets the image data associated with this post.
+ 
+ @return: Returns EkoImageData if present. Else returns nil.
+ */
+- (nullable EkoImageData *)getImageInfo;
 
 @end

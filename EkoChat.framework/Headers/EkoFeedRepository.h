@@ -22,7 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface EkoFeedRepository : NSObject
 
 @property (strong, readonly, nonatomic) EkoClient *client;
-@property (readonly, nonatomic) NSUInteger totalUnreadCount;
 
 /**
    Designated intializer

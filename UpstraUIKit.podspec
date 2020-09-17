@@ -1,14 +1,12 @@
 
 Pod::Spec.new do |s|
     s.name         = "UpstraUIKit"
-    s.version      = "1.0.1"
+    s.version      = "1.1.0"
     s.summary      = "A brief description of UpstraUIKit project."
     s.description  = "An extended description of UpstraUIKit project."
     s.homepage     = "https://github.com/EkoCommunications/EkoMessagingSDKUIKit"
     s.license = { :type => 'Copyright', :text => <<-LICENSE
-                   Copyright 2018
-                   Permission is granted to...
-                  LICENSE
+                   Copyright 2020 LICENSE
                 }
     s.author             = { "$(git config user.name)" => "$(git config user.email)" }
     s.source       = { :git => 'https://github.com/EkoCommunications/EkoMessagingSDKUIKit.git', :tag => "#{s.version}" }

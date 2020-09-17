@@ -12,7 +12,7 @@
 #import "EkoImageData.h"
 #import "EkoFileData.h"
 
-@import UIKit.UIImage;
+@class UIImage;
 @class UploadableFile;
 
 typedef void (^EkoFileUploadCompletion)(NSArray<EkoFileData *> * _Nonnull fileIds, NSArray<UploadableFile *> * _Nonnull failedUploads);

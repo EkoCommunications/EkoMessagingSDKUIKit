@@ -121,6 +121,7 @@ typedef NS_ENUM(NSInteger, EkoErrorCode) {
     EkoErrorCodeMalformedData = 800130,
     EkoErrorCodeQueryInProgress = 800170,
     EkoErrorCodeConnectionError = 800210,
+    EkoErrorCodeUploadFailed = 800310
 };
 
 /**

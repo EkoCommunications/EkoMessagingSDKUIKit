@@ -14,6 +14,8 @@
 #import "EkoCollection.h"
 #import "EkoChannelQueryBuilder.h"
 
+@class UIImage;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -123,6 +125,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setTagsForChannel:(nonnull NSString *)channelId
                      tags:(nullable NSArray<NSString *> *)tags
                completion:(nullable EkoRequestCompletion)completion;
+
+
+/**
+   Sets the tags for the given channel
+   @param channelId  A valid Channel Id
+   @param image An image. Put nil if you want to remove the avatar
+ */
+- (void)setAvatarForChannel:(nonnull NSString *)channelId
+                     avatar:(nullable UIImage *)image
+                 completion:(nullable EkoRequestCompletion)completion;
+
 
 /**
    @abstract Returns a collection of all channels, filtered by the specific filter and tags

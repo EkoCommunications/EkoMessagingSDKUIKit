@@ -32,7 +32,7 @@
 /**
  Create the which need a text represented by string value
  @param builder: A type of EkoPostBuilder object. You can use EkoTextPostBuilder to create text post.
- @param targetId: Target id for the feed. Set nil if you are creating a post on your own feed (only for user target type).
+ @param targetId: Target id for the feed. Set nil if you are creating a post on your own feed.
  @param targetType: Target type for the feed. Either community or user.
  
  */
@@ -46,7 +46,9 @@
  @param postId: A post id represent the post object
  @param builder: A type of EkoPostBuilder object. You can use EkoTextPostBuilder to create text post. **Note** Builder should be of same type that you used to create the original post.
  */
-- (void)updatePostWithPostId:(nonnull NSString *)postId builder:(nonnull id<EkoPostBuilder>)builder completion:(EkoRequestCompletion _Nullable)completion;
+- (void)updatePostWithPostId:(nonnull NSString *)postId
+                     builder:(nonnull id<EkoPostBuilder>)builder
+                  completion:(EkoRequestCompletion _Nullable)completion;
 
 /**
  Delete the specific post with provided id

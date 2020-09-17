@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class EkoImageData;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -37,6 +38,12 @@ __attribute__((objc_subclassing_restricted))
  Date when this Category was last updated
  */
 @property (strong, nonatomic) NSDate *updatedAt;
+
+/**
+ * The avatar model of the community category
+ */
+@property (nullable, strong, readonly, nonatomic) EkoImageData *avatar;
+
 
 @end
 
