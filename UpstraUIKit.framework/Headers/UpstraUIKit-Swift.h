@@ -272,6 +272,42 @@ SWIFT_CLASS("_TtC11UpstraUIKit9EkoButton")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 @end
 
+@class UIScrollView;
+@protocol UIViewControllerTransitionCoordinator;
+
+SWIFT_CLASS("_TtC11UpstraUIKit25EkoPagerTabViewController")
+@interface EkoPagerTabViewController : UIViewController <UIScrollViewDelegate>
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
+- (void)viewDidDisappear:(BOOL)animated;
+- (void)viewDidLayoutSubviews;
+@property (nonatomic, readonly) BOOL shouldAutomaticallyForwardAppearanceMethods;
+- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
+- (void)scrollViewWillBeginDragging:(UIScrollView * _Nonnull)scrollView;
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView * _Nonnull)scrollView;
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UICollectionView;
+@class UICollectionViewCell;
+
+SWIFT_CLASS("_TtC11UpstraUIKit32EkoButtonPagerTabSViewController")
+@interface EkoButtonPagerTabSViewController : EkoPagerTabViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidLayoutSubviews;
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView * _Nonnull)scrollView;
+@end
+
 
 SWIFT_CLASS("_TtC11UpstraUIKit17EkoViewController")
 @interface EkoViewController : UIViewController
@@ -309,13 +345,12 @@ SWIFT_CLASS("_TtC11UpstraUIKit34EkoColorPaletteTableViewController")
 
 
 SWIFT_CLASS("_TtC11UpstraUIKit34EkoCommunityHomePageViewController")
-@interface EkoCommunityHomePageViewController : EkoViewController
+@interface EkoCommunityHomePageViewController : EkoButtonPagerTabSViewController
+@property (nonatomic, copy) NSString * _Nullable title;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)viewDidLoad;
 @end
-
-
 
 
 
@@ -339,7 +374,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit27EkoCreatePostViewController")
 
 @class EkoPhotoViewerController;
 @class UIPanGestureRecognizer;
-@class UIScrollView;
 
 SWIFT_PROTOCOL("_TtP11UpstraUIKit32EkoPhotoViewerControllerDelegate_")
 @protocol EkoPhotoViewerControllerDelegate <NSObject>
@@ -467,14 +501,14 @@ SWIFT_CLASS("_TtC11UpstraUIKit27EkoGlobalFeedViewController")
 
 
 
+
+
+
+
 @interface EkoGlobalFeedViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
-
-
 
 
 
@@ -602,6 +636,7 @@ SWIFT_CLASS("_TtC11UpstraUIKit25EkoNewsfeedViewController")
 
 
 
+
 @protocol UIViewControllerContextTransitioning;
 
 SWIFT_CLASS("_TtC11UpstraUIKit16EkoPhotoAnimator")
@@ -641,7 +676,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit18EkoPhotoScrollView")
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@protocol UIViewControllerTransitionCoordinator;
 
 SWIFT_CLASS("_TtC11UpstraUIKit24EkoPhotoViewerController")
 @interface EkoPhotoViewerController : UIViewController
@@ -667,7 +701,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit24EkoPhotoViewerController")
 
 
 
-@class UICollectionView;
 
 @interface EkoPhotoViewerController (SWIFT_EXTENSION(UpstraUIKit)) <UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
