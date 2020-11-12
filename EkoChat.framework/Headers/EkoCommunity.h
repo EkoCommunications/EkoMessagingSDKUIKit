@@ -9,6 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EkoEnums.h"
+#import "EkoCommunityParticipation.h"
 
 @class EkoCommunity;
 @class EkoUser;
@@ -119,5 +120,15 @@ __attribute__((objc_subclassing_restricted))
  Array of categories this community belongs to.
  */
 @property (nonnull, nonatomic) NSArray<EkoCommunityCategory *> *categories;
+
+/**
+ Whether this community is deleted or not
+ */
+@property (assign, nonatomic) BOOL isDeleted;
+
+/**
+ Returns participation instance
+ */
+@property (nonnull, readonly, nonatomic) EkoCommunityParticipation *participation;
 
 @end

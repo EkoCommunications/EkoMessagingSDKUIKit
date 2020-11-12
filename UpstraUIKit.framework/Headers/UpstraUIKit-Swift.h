@@ -187,6 +187,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreGraphics;
+@import EkoChat;
 @import Foundation;
 @import ObjectiveC;
 @import Photos;
@@ -272,11 +273,21 @@ SWIFT_CLASS("_TtC11UpstraUIKit9EkoButton")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 @end
 
+
+SWIFT_CLASS("_TtC11UpstraUIKit17EkoViewController")
+@interface EkoViewController : UIViewController
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+/// Text for navigation bar
+@property (nonatomic, copy) NSString * _Nullable title;
+- (void)viewDidLoad;
+@end
+
 @class UIScrollView;
 @protocol UIViewControllerTransitionCoordinator;
 
 SWIFT_CLASS("_TtC11UpstraUIKit25EkoPagerTabViewController")
-@interface EkoPagerTabViewController : UIViewController <UIScrollViewDelegate>
+@interface EkoPagerTabViewController : EkoViewController <UIScrollViewDelegate>
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidAppear:(BOOL)animated;
@@ -288,8 +299,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit25EkoPagerTabViewController")
 - (void)scrollViewWillBeginDragging:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView * _Nonnull)scrollView;
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UICollectionView;
@@ -297,8 +306,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit25EkoPagerTabViewController")
 
 SWIFT_CLASS("_TtC11UpstraUIKit32EkoButtonPagerTabSViewController")
 @interface EkoButtonPagerTabSViewController : EkoPagerTabViewController <UICollectionViewDataSource, UICollectionViewDelegate>
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidLayoutSubviews;
@@ -309,28 +316,98 @@ SWIFT_CLASS("_TtC11UpstraUIKit32EkoButtonPagerTabSViewController")
 @end
 
 
-SWIFT_CLASS("_TtC11UpstraUIKit17EkoViewController")
-@interface EkoViewController : UIViewController
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-/// Text for navigation bar
-@property (nonatomic, copy) NSString * _Nullable title;
+/// A view controller for providing category community list.
+SWIFT_CLASS("_TtC11UpstraUIKit38EkoCategoryCommunityListViewController")
+@interface EkoCategoryCommunityListViewController : EkoViewController
 - (void)viewDidLoad;
 @end
-
-
-/// Eko chat home
-SWIFT_CLASS("_TtC11UpstraUIKit29EkoChatHomePageViewController")
-@interface EkoChatHomePageViewController : EkoViewController
-- (void)viewDidLoad;
-@end
-
-
 
 
 
 @class UITableView;
 @class UITableViewCell;
+
+@interface EkoCategoryCommunityListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface EkoCategoryCommunityListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit29EkoCategoryListViewController")
+@interface EkoCategoryListViewController : EkoViewController
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)viewDidLoad;
+@end
+
+
+
+
+@interface EkoCategoryListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface EkoCategoryListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit32EkoCategoryPreviewViewController")
+@interface EkoCategoryPreviewViewController : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+
+
+
+
+
+@interface EkoCategoryPreviewViewController (SWIFT_EXTENSION(UpstraUIKit)) <UICollectionViewDataSource>
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+
+@class UICollectionViewLayout;
+
+@interface EkoCategoryPreviewViewController (SWIFT_EXTENSION(UpstraUIKit)) <UICollectionViewDelegateFlowLayout>
+- (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UIEdgeInsets)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout insetForSectionAtIndex:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit21EkoPageViewController")
+@interface EkoPageViewController : EkoButtonPagerTabSViewController
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+@end
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit29EkoChatHomePageViewController")
+@interface EkoChatHomePageViewController : EkoPageViewController
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)viewDidLoad;
+@end
+
 
 SWIFT_CLASS("_TtC11UpstraUIKit34EkoColorPaletteTableViewController")
 @interface EkoColorPaletteTableViewController : UITableViewController
@@ -344,9 +421,26 @@ SWIFT_CLASS("_TtC11UpstraUIKit34EkoColorPaletteTableViewController")
 @end
 
 
+SWIFT_CLASS("_TtC11UpstraUIKit30EkoProfileBottomViewController")
+@interface EkoProfileBottomViewController : EkoButtonPagerTabSViewController
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+@end
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit30EkoCommunityFeedViewController")
+@interface EkoCommunityFeedViewController : EkoProfileBottomViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
+- (void)viewDidLoad;
+@end
+
+
+
+
 SWIFT_CLASS("_TtC11UpstraUIKit34EkoCommunityHomePageViewController")
-@interface EkoCommunityHomePageViewController : EkoButtonPagerTabSViewController
-@property (nonatomic, copy) NSString * _Nullable title;
+@interface EkoCommunityHomePageViewController : EkoPageViewController
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)viewDidLoad;
@@ -355,75 +449,67 @@ SWIFT_CLASS("_TtC11UpstraUIKit34EkoCommunityHomePageViewController")
 
 
 
-SWIFT_CLASS("_TtC11UpstraUIKit27EkoCreatePostViewController")
-@interface EkoCreatePostViewController : EkoViewController
+/// A view controller for providing community profile editor.
+SWIFT_CLASS("_TtC11UpstraUIKit37EkoCommunityProfileEditViewController")
+@interface EkoCommunityProfileEditViewController : EkoViewController
 - (void)viewDidLoad;
 @end
 
 
-@interface EkoCreatePostViewController (SWIFT_EXTENSION(UpstraUIKit)) <UINavigationControllerDelegate>
+
+
+
+@class UITextField;
+
+@interface EkoCommunityProfileEditViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITextFieldDelegate>
+- (BOOL)textField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString * _Nonnull)string SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UIImagePickerController;
+
+@interface EkoCommunityProfileEditViewController (SWIFT_EXTENSION(UpstraUIKit)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+- (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> * _Nonnull)info;
 @end
 
 
 
 
-
-
-
-
-
-@class EkoPhotoViewerController;
-@class UIPanGestureRecognizer;
-
-SWIFT_PROTOCOL("_TtP11UpstraUIKit32EkoPhotoViewerControllerDelegate_")
-@protocol EkoPhotoViewerControllerDelegate <NSObject>
-@optional
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didScrollToPhotoAt:(NSInteger)index;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didZoomOnPhotoAtIndex:(NSInteger)didZoomOnPhotoAtIndex atScale:(CGFloat)scale;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didEndZoomingOnPhotoAtIndex:(NSInteger)didEndZoomingOnPhotoAtIndex atScale:(CGFloat)scale;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController willZoomOnPhotoAtIndex:(NSInteger)willZoomOnPhotoAtIndex;
-- (void)photoViewerControllerDidReceiveTapGesture:(EkoPhotoViewerController * _Nonnull)photoViewerController;
-- (void)photoViewerControllerDidReceiveDoubleTapGesture:(EkoPhotoViewerController * _Nonnull)photoViewerController;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController willBeginPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)gestureRecognizer;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didEndPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)gestureRecognizer;
-- (void)photoViewerControllerDidEndPresentingAnimation:(EkoPhotoViewerController * _Nonnull)photoViewerController;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController scrollViewDidScroll:(UIScrollView * _Nonnull)scrollViewDidScroll;
+@interface EkoCommunityProfileEditViewController (SWIFT_EXTENSION(UpstraUIKit))
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
-@interface EkoCreatePostViewController (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDelegate>
-- (void)photoViewerControllerDidEndPresentingAnimation:(EkoPhotoViewerController * _Nonnull)photoViewerController;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didScrollToPhotoAt:(NSInteger)index;
+@interface EkoCommunityProfileEditViewController (SWIFT_EXTENSION(UpstraUIKit)) <UICollectionViewDataSource>
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface EkoCommunityProfileEditViewController (SWIFT_EXTENSION(UpstraUIKit)) <UICollectionViewDelegateFlowLayout>
+- (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 
-@class UIImageView;
-@class EkoPhotoCollectionViewCell;
 
-SWIFT_PROTOCOL("_TtP11UpstraUIKit34EkoPhotoViewerControllerDataSource_")
-@protocol EkoPhotoViewerControllerDataSource <NSObject>
-/// Total number of photo in viewer.
-- (NSInteger)numberOfItemsIn:(EkoPhotoViewerController * _Nonnull)photoViewerController SWIFT_WARN_UNUSED_RESULT;
-/// Configure each photo in viewer
-/// Implementation for photoViewerController:configurePhotoAt:withImageView is mandatory.
-/// Not implementing this method will cause viewer not to work properly.
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configurePhotoAt:(NSInteger)index withImageView:(UIImageView * _Nonnull)imageView;
-@optional
-/// This is usually used if you have custom EkoPhotoCollectionViewCell and configure each photo differently.
-/// Remember this method cannot be a replacement of photoViewerController:configurePhotoAt:withImageView
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configureCell:(EkoPhotoCollectionViewCell * _Nonnull)cell forPhotoAt:(NSInteger)index;
-/// This method provide the specific referenced view for each photo item in viewer that will be used for smoother dismissal transition.
-- (UIView * _Nullable)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController referencedViewForPhotoAt:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS("_TtC11UpstraUIKit24EkoProfileViewController")
+@interface EkoProfileViewController : EkoViewController
+- (void)viewDidLoad;
 @end
 
 
-@interface EkoCreatePostViewController (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDataSource>
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configureCell:(EkoPhotoCollectionViewCell * _Nonnull)cell forPhotoAt:(NSInteger)index;
-- (UIView * _Nullable)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController referencedViewForPhotoAt:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)numberOfItemsIn:(EkoPhotoViewerController * _Nonnull)photoViewerController SWIFT_WARN_UNUSED_RESULT;
-- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configurePhotoAt:(NSInteger)index withImageView:(UIImageView * _Nonnull)imageView;
+/// A view controller for providing community profile and community feed.
+SWIFT_CLASS("_TtC11UpstraUIKit37EkoCommunityProfilePageViewController")
+@interface EkoCommunityProfilePageViewController : EkoProfileViewController
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 @end
+
+
+
+
 
 
 SWIFT_CLASS("_TtC11UpstraUIKit11EkoDocument")
@@ -434,21 +520,20 @@ SWIFT_CLASS("_TtC11UpstraUIKit11EkoDocument")
 @end
 
 
-SWIFT_CLASS("_TtC11UpstraUIKit17EkoDocumentPicker")
-@interface EkoDocumentPicker : NSObject
+SWIFT_CLASS("_TtC11UpstraUIKit32EkoEditUserProfileViewController")
+@interface EkoEditUserProfileViewController : EkoViewController
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)viewDidLoad;
 @end
 
 
-@interface EkoDocumentPicker (SWIFT_EXTENSION(UpstraUIKit)) <UINavigationControllerDelegate>
-@end
 
-@class UIDocumentPickerViewController;
 
-@interface EkoDocumentPicker (SWIFT_EXTENSION(UpstraUIKit)) <UIDocumentPickerDelegate>
-- (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentsAtURLs:(NSArray<NSURL *> * _Nonnull)urls;
-- (void)documentPickerWasCancelled:(UIDocumentPickerViewController * _Nonnull)controller;
+
+
+@interface EkoEditUserProfileViewController (SWIFT_EXTENSION(UpstraUIKit)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+- (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> * _Nonnull)info;
 @end
 
 @class NSAttributedString;
@@ -481,6 +566,65 @@ SWIFT_CLASS("_TtC11UpstraUIKit18EkoExpandableLabel")
 
 
 
+SWIFT_CLASS("_TtC11UpstraUIKit24EkoExploreViewController")
+@interface EkoExploreViewController : EkoViewController
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)viewDidLoad;
+@end
+
+
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit21EkoFeedViewController")
+@interface EkoFeedViewController : EkoViewController
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
+@end
+
+
+
+
+
+
+@interface EkoFeedViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface EkoFeedViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+
+
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit13EkoFilePicker")
+@interface EkoFilePicker : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface EkoFilePicker (SWIFT_EXTENSION(UpstraUIKit)) <UINavigationControllerDelegate>
+@end
+
+@class UIDocumentPickerViewController;
+
+@interface EkoFilePicker (SWIFT_EXTENSION(UpstraUIKit)) <UIDocumentPickerDelegate>
+- (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentsAtURLs:(NSArray<NSURL *> * _Nonnull)urls;
+- (void)documentPickerWasCancelled:(UIDocumentPickerViewController * _Nonnull)controller;
+@end
+
+
 SWIFT_CLASS("_TtC11UpstraUIKit28EkoGalleryCollectionViewCell")
 @interface EkoGalleryCollectionViewCell : UICollectionViewCell
 - (void)awakeFromNib;
@@ -490,29 +634,13 @@ SWIFT_CLASS("_TtC11UpstraUIKit28EkoGalleryCollectionViewCell")
 @end
 
 
+/// A view controller for providing global post feed which consist of community feed and my own feed..
 SWIFT_CLASS("_TtC11UpstraUIKit27EkoGlobalFeedViewController")
 @interface EkoGlobalFeedViewController : EkoViewController
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)animated;
 @end
-
-
-
-
-
-
-
-
-
-
-@interface EkoGlobalFeedViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-
-
 
 @class Settings;
 @class UIBarButtonItem;
@@ -587,6 +715,7 @@ SWIFT_CLASS("_TtC11UpstraUIKit23EkoImagePickerImageView")
 @end
 
 
+/// Eko Message List
 SWIFT_CLASS("_TtC11UpstraUIKit28EkoMessageListViewController")
 @interface EkoMessageListViewController : EkoViewController
 - (void)viewDidLoad;
@@ -599,40 +728,49 @@ SWIFT_CLASS("_TtC11UpstraUIKit28EkoMessageListViewController")
 
 
 
-
-
-
-@class UIImagePickerController;
-
 @interface EkoMessageListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 - (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> * _Nonnull)info;
-- (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
-@end
-
-
-@interface EkoMessageListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
-- (void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 
 
-@interface EkoMessageListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
-- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit35EkoMyCommunityPreviewViewController")
+@interface EkoMyCommunityPreviewViewController : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
 
+
+
+
+
+
+
+@interface EkoMyCommunityPreviewViewController (SWIFT_EXTENSION(UpstraUIKit)) <UICollectionViewDelegate>
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@interface EkoMyCommunityPreviewViewController (SWIFT_EXTENSION(UpstraUIKit)) <UICollectionViewDataSource>
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+/// A view controller for providing global feed with create post functionality.
 SWIFT_CLASS("_TtC11UpstraUIKit25EkoNewsfeedViewController")
 @interface EkoNewsfeedViewController : EkoViewController
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 @end
+
+
+
 
 
 
@@ -711,7 +849,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit24EkoPhotoViewerController")
 
 
 
-@class UICollectionViewLayout;
 
 @interface EkoPhotoViewerController (SWIFT_EXTENSION(UpstraUIKit)) <UICollectionViewDelegateFlowLayout>
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
@@ -723,13 +860,76 @@ SWIFT_CLASS("_TtC11UpstraUIKit24EkoPhotoViewerController")
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
 
+@class UIImageView;
+
+SWIFT_PROTOCOL("_TtP11UpstraUIKit34EkoPhotoViewerControllerDataSource_")
+@protocol EkoPhotoViewerControllerDataSource <NSObject>
+/// Total number of photo in viewer.
+- (NSInteger)numberOfItemsIn:(EkoPhotoViewerController * _Nonnull)photoViewerController SWIFT_WARN_UNUSED_RESULT;
+/// Configure each photo in viewer
+/// Implementation for photoViewerController:configurePhotoAt:withImageView is mandatory.
+/// Not implementing this method will cause viewer not to work properly.
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configurePhotoAt:(NSInteger)index withImageView:(UIImageView * _Nonnull)imageView;
+@optional
+/// This is usually used if you have custom EkoPhotoCollectionViewCell and configure each photo differently.
+/// Remember this method cannot be a replacement of photoViewerController:configurePhotoAt:withImageView
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configureCell:(EkoPhotoCollectionViewCell * _Nonnull)cell forPhotoAt:(NSInteger)index;
+/// This method provide the specific referenced view for each photo item in viewer that will be used for smoother dismissal transition.
+- (UIView * _Nullable)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController referencedViewForPhotoAt:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UIPanGestureRecognizer;
+
+SWIFT_PROTOCOL("_TtP11UpstraUIKit32EkoPhotoViewerControllerDelegate_")
+@protocol EkoPhotoViewerControllerDelegate <NSObject>
+@optional
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didScrollToPhotoAt:(NSInteger)index;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didZoomOnPhotoAtIndex:(NSInteger)didZoomOnPhotoAtIndex atScale:(CGFloat)scale;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didEndZoomingOnPhotoAtIndex:(NSInteger)didEndZoomingOnPhotoAtIndex atScale:(CGFloat)scale;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController willZoomOnPhotoAtIndex:(NSInteger)willZoomOnPhotoAtIndex;
+- (void)photoViewerControllerDidReceiveTapGesture:(EkoPhotoViewerController * _Nonnull)photoViewerController;
+- (void)photoViewerControllerDidReceiveDoubleTapGesture:(EkoPhotoViewerController * _Nonnull)photoViewerController;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController willBeginPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)gestureRecognizer;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didEndPanGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)gestureRecognizer;
+- (void)photoViewerControllerDidEndPresentingAnimation:(EkoPhotoViewerController * _Nonnull)photoViewerController;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController scrollViewDidScroll:(UIScrollView * _Nonnull)scrollViewDidScroll;
+@end
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit26EkoPostDetailTableViewCell")
+@interface EkoPostDetailTableViewCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet EkoExpandableLabel * _Null_unspecified contentLabel;
+- (void)awakeFromNib;
+- (void)prepareForReuse;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 
+
+@interface EkoPostDetailTableViewCell (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDelegate>
+- (void)photoViewerControllerDidEndPresentingAnimation:(EkoPhotoViewerController * _Nonnull)photoViewerController;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didScrollToPhotoAt:(NSInteger)index;
+@end
+
+
+
+
+@interface EkoPostDetailTableViewCell (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDataSource>
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configureCell:(EkoPhotoCollectionViewCell * _Nonnull)cell forPhotoAt:(NSInteger)index;
+- (UIView * _Nullable)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController referencedViewForPhotoAt:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)numberOfItemsIn:(EkoPhotoViewerController * _Nonnull)photoViewerController SWIFT_WARN_UNUSED_RESULT;
+- (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configurePhotoAt:(NSInteger)index withImageView:(UIImageView * _Nonnull)imageView;
+@end
+
+
+/// A view controller for providing post and relevant comments.
 SWIFT_CLASS("_TtC11UpstraUIKit27EkoPostDetailViewController")
 @interface EkoPostDetailViewController : EkoViewController
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
 @end
 
 
@@ -743,7 +943,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit27EkoPostDetailViewController")
 
 @interface EkoPostDetailViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
 
@@ -763,9 +962,8 @@ SWIFT_CLASS("_TtC11UpstraUIKit27EkoPostDetailViewController")
 
 
 
-SWIFT_CLASS("_TtC11UpstraUIKit20EkoPostTableViewCell")
-@interface EkoPostTableViewCell : UITableViewCell
-@property (nonatomic, weak) IBOutlet EkoExpandableLabel * _Null_unspecified contentLabel;
+SWIFT_CLASS("_TtC11UpstraUIKit24EkoPostFeedTableViewCell")
+@interface EkoPostFeedTableViewCell : UITableViewCell
 - (void)awakeFromNib;
 - (void)prepareForReuse;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
@@ -775,15 +973,15 @@ SWIFT_CLASS("_TtC11UpstraUIKit20EkoPostTableViewCell")
 
 
 
-@interface EkoPostTableViewCell (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDelegate>
+
+
+@interface EkoPostFeedTableViewCell (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDelegate>
 - (void)photoViewerControllerDidEndPresentingAnimation:(EkoPhotoViewerController * _Nonnull)photoViewerController;
 - (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController didScrollToPhotoAt:(NSInteger)index;
 @end
 
 
-
-
-@interface EkoPostTableViewCell (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDataSource>
+@interface EkoPostFeedTableViewCell (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDataSource>
 - (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configureCell:(EkoPhotoCollectionViewCell * _Nonnull)cell forPhotoAt:(NSInteger)index;
 - (UIView * _Nullable)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController referencedViewForPhotoAt:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)numberOfItemsIn:(EkoPhotoViewerController * _Nonnull)photoViewerController SWIFT_WARN_UNUSED_RESULT;
@@ -793,11 +991,94 @@ SWIFT_CLASS("_TtC11UpstraUIKit20EkoPostTableViewCell")
 
 
 
-SWIFT_CLASS("_TtC11UpstraUIKit19EkoViewPagerTabView")
-@interface EkoViewPagerTabView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit36EkoPostTargetSelectionViewController")
+@interface EkoPostTargetSelectionViewController : EkoViewController
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)viewDidLoad;
 @end
+
+
+
+
+
+
+@interface EkoPostTargetSelectionViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface EkoPostTargetSelectionViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+
+
+/// A view controller for providing recommended community list.
+SWIFT_CLASS("_TtC11UpstraUIKit37EkoRecommendedCommunityViewController")
+@interface EkoRecommendedCommunityViewController : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+
+
+
+@interface EkoRecommendedCommunityViewController (SWIFT_EXTENSION(UpstraUIKit)) <UICollectionViewDelegateFlowLayout>
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+
+
+@interface EkoRecommendedCommunityViewController (SWIFT_EXTENSION(UpstraUIKit)) <UICollectionViewDataSource>
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC11UpstraUIKit34EkoTrendingCommunityViewController")
+@interface EkoTrendingCommunityViewController : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+
+
+
+@interface EkoTrendingCommunityViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+
+
+@interface EkoTrendingCommunityViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+/// A view controller for providing specific user post feed.
+SWIFT_CLASS("_TtC11UpstraUIKit25EkoUserFeedViewController")
+@interface EkoUserFeedViewController : EkoViewController
+- (void)viewDidLoad;
+@end
+
+
+
+
 
 
 
@@ -811,6 +1092,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Settings * _
 + (Settings * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
 
 
 
@@ -869,6 +1152,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Settings * _
 ///
 - (void)presentImagePicker:(EkoImagePickerController * _Nonnull)imagePicker animated:(BOOL)animated select:(void (^ _Nullable)(PHAsset * _Nonnull))select deselect:(void (^ _Nullable)(PHAsset * _Nonnull))deselect cancel:(void (^ _Nullable)(NSArray<PHAsset *> * _Nonnull))cancel finish:(void (^ _Nullable)(NSArray<PHAsset *> * _Nonnull))finish completion:(void (^ _Nullable)(void))completion;
 @end
+
+
 
 
 
