@@ -401,6 +401,7 @@ SWIFT_CLASS("_TtC11UpstraUIKit21EkoPageViewController")
 @end
 
 
+/// Eko Chat home
 SWIFT_CLASS("_TtC11UpstraUIKit29EkoChatHomePageViewController")
 @interface EkoChatHomePageViewController : EkoPageViewController
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -737,6 +738,8 @@ SWIFT_CLASS("_TtC11UpstraUIKit28EkoMessageListViewController")
 
 
 
+
+
 SWIFT_CLASS("_TtC11UpstraUIKit35EkoMyCommunityPreviewViewController")
 @interface EkoMyCommunityPreviewViewController : UIViewController
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
@@ -939,12 +942,12 @@ SWIFT_CLASS("_TtC11UpstraUIKit27EkoPostDetailViewController")
 
 
 
-
-
 @interface EkoPostDetailViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 
@@ -981,14 +984,14 @@ SWIFT_CLASS("_TtC11UpstraUIKit24EkoPostFeedTableViewCell")
 @end
 
 
+
+
 @interface EkoPostFeedTableViewCell (SWIFT_EXTENSION(UpstraUIKit)) <EkoPhotoViewerControllerDataSource>
 - (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configureCell:(EkoPhotoCollectionViewCell * _Nonnull)cell forPhotoAt:(NSInteger)index;
 - (UIView * _Nullable)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController referencedViewForPhotoAt:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)numberOfItemsIn:(EkoPhotoViewerController * _Nonnull)photoViewerController SWIFT_WARN_UNUSED_RESULT;
 - (void)photoViewerController:(EkoPhotoViewerController * _Nonnull)photoViewerController configurePhotoAt:(NSInteger)index withImageView:(UIImageView * _Nonnull)imageView;
 @end
-
-
 
 
 
@@ -1017,6 +1020,31 @@ SWIFT_CLASS("_TtC11UpstraUIKit36EkoPostTargetSelectionViewController")
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+
+
+/// Recent chat
+SWIFT_CLASS("_TtC11UpstraUIKit27EkoRecentChatViewController")
+@interface EkoRecentChatViewController : EkoViewController
+- (void)viewDidLoad;
+@end
+
+
+
+
+
+
+@interface EkoRecentChatViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)tableView:(UITableView * _Nonnull)tableView willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@interface EkoRecentChatViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDataSource>
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1063,12 +1091,12 @@ SWIFT_CLASS("_TtC11UpstraUIKit33EkoSelectMemberListViewController")
 @end
 
 
-
-
 @interface EkoSelectMemberListViewController (SWIFT_EXTENSION(UpstraUIKit)) <UITableViewDelegate>
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 
