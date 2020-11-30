@@ -406,7 +406,6 @@ SWIFT_CLASS("_TtC11UpstraUIKit29EkoChatHomePageViewController")
 @interface EkoChatHomePageViewController : EkoPageViewController
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (void)viewDidLoad;
 @end
 
 
