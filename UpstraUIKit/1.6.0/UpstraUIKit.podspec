@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
                 }
     s.author             = { "$(git config user.name)" => "$(git config user.email)" }
     s.source       = { :git => 'https://github.com/EkoCommunications/EkoMessagingSDKUIKit.git', :tag => "#{s.version}" }
-    s.vendored_frameworks = 'UpstraUIKit.xcframework', 'EkoChat.xcframework', 'Realm.xcframework'
+    s.vendored_frameworks = 'Distribution/UpstraUIKit.xcframework', 'Distribution/EkoChat.xcframework', 'Distribution/Realm.xcframework'
     s.platform = :ios
     s.swift_version = "5"
     s.ios.deployment_target  = '12.0'
