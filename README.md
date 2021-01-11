@@ -27,7 +27,7 @@ Refer to this [link](https://docs.upstra.co/ios/start) for manual installation.
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Upstra UIKit, add the following to your `Cartfile`.
 
 ```
-binary "https://github.com/EkoCommunications/EkoMessagingSDKUIKit/releases/download/1.8.0/UpstraUIKit.json" ~> 1.8.0
+binary "https://github.com/EkoCommunications/EkoMessagingSDKUIKit/releases/download/1.8.0/UpstraUIKit.json" ~> 1.8.1
 ```
 
 > Note: You can change 0.1.0 with the supported release tag
@@ -37,7 +37,7 @@ binary "https://github.com/EkoCommunications/EkoMessagingSDKUIKit/releases/downl
 To integrate UpstraUIKit into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```
-pod 'UpstraUIKit', '1.8.0', :source => "https://github.com/EkoCommunications/EkoMessagingSDKUIKit.git"
+pod 'UpstraUIKit', '1.8.1', :source => "https://github.com/EkoCommunications/EkoMessagingSDKUIKit.git"
 ```
 
 > Note: After that you must do [Step-3](https://docs.upstra.co/ios/start) to complete the installation and bypass the AppStore submission.
@@ -58,7 +58,7 @@ pod 'UpstraUIKit', '1.8.0', :source => "https://github.com/EkoCommunications/Eko
 ## Requirements
 
 | UpstraUIKit Version | Minimum iOS Target | Supported Language
-| 1.8.0 | iOS 11 | Swift 5.3.1
+| 1.8.1 | iOS 11 | Swift 5.3.1
 
 ## Dependencies
 
