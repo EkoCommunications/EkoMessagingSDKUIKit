@@ -10,13 +10,13 @@ Upstra UIKit is a delightful UIKit library for iOS. It is extending the powerful
 
 ## How To Get Started
 
-- [Download Latest Upstra UIKit manually](https://docs.upstra.co/ios/changelog) and try out the sample app.
-- Read the ["Getting Started" Documentation](https://docs.upstra.co/ios/start)
+- [Download Latest Upstra UIKit manually](https://docs.upstra.co/ios/uikit/changelog) and try out the sample app.
+- Read the ["Getting Started" Documentation](https://docs.upstra.co/ios/uikit/get-started)
 
 ### Installation
 
 There are multiple ways to setup Upstra UIKit to be able work
-Once setup below has done, go to official [Upstra](https://docs.upstra.co/ios/start) documentation and follow another step.
+Once setup below has done, go to official [Upstra](https://docs.upstra.co/ios/uikit/get-started) documentation and follow another step.
 
 ### Manual Installation
 
@@ -27,7 +27,7 @@ Refer to this [link](https://docs.upstra.co/ios/start) for manual installation.
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Upstra UIKit, add the following to your `Cartfile`.
 
 ```
-binary "https://github.com/EkoCommunications/EkoMessagingSDKUIKit/releases/download/1.8.0/UpstraUIKit.json" ~> 1.8.1
+binary "https://github.com/EkoCommunications/EkoMessagingSDKUIKit/releases/download/1.9.0/UpstraUIKit.json" ~> 1.9.0
 ```
 
 > Note: You can change 0.1.0 with the supported release tag
@@ -37,7 +37,7 @@ binary "https://github.com/EkoCommunications/EkoMessagingSDKUIKit/releases/downl
 To integrate UpstraUIKit into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```
-pod 'UpstraUIKit', '1.8.1', :source => "https://github.com/EkoCommunications/EkoMessagingSDKUIKit.git"
+pod 'UpstraUIKit', '1.9.0', :source => "https://github.com/EkoCommunications/EkoMessagingSDKUIKit.git"
 ```
 
 > Note: After that you must do [Step-3](https://docs.upstra.co/ios/start) to complete the installation and bypass the AppStore submission.
@@ -58,7 +58,7 @@ pod 'UpstraUIKit', '1.8.1', :source => "https://github.com/EkoCommunications/Eko
 ## Requirements
 
 | UpstraUIKit Version | Minimum iOS Target | Supported Language
-| 1.8.1 | iOS 11 | Swift 5.3.1
+| 1.9.0 | iOS 11 | Swift 5.3.1
 
 ## Dependencies
 
