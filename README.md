@@ -27,10 +27,10 @@ Refer to this [link](https://docs.amity.co/uikit/ios/getting-started) for manual
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate AmityUIKit, add the following to your `Cartfile`.
 
 ```
-binary "https://github.com/EkoCommunications/EkoMessagingSDKUIKit/releases/download/2.0.3/AmityUIKit.json" ~> 2.0.3
+binary "https://github.com/EkoCommunications/EkoMessagingSDKUIKit/releases/download/2.4.0/AmityUIKit.json" ~> 2.4.0
 ```
 
-> Note: You can change 2.0.3 with the supported release tag
+> Note: You can change 2.4.0 with the supported release tag
 
 ### Cocoapod
 
@@ -56,7 +56,7 @@ pod 'AmityUIKit' :source => "https://github.com/EkoCommunications/EkoMessagingSD
 ## Requirements
 
 | AmityUIKit Version | AmitySDK Version | Minimum iOS Target | Supported Language
-| 2.0.3 | 5.0.2 | iOS 12.0 | Swift 5.3.1
+| 2.4.0 | 5.0.2 | iOS 12.0 | Swift 5.3.1
 
 ## Dependencies
 
